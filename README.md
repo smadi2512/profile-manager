@@ -13,16 +13,19 @@ A React + TypeScript application designed with **scalable architecture**, **reus
 
 ## 🏆 Key Achievements
 
-- ✅ **Mastered Advanced React Patterns** – Built production-ready Compound Components, Render Props, and State Reducer systems.
-- ✅ **Designed Scalable Architecture** – Feature-based structure with clean separation of concerns and reusable UI library.
-- ✅ **Optimized Performance** – Smaller bundle size with code splitting, lazy loading, and memoization.
-- ✅ **Type-Safe Development** – Generic components (like `SmartList<T>` and others) with full TypeScript integration for strong development.
+- **Advanced React Patterns** – Built production systems using **4 core patterns**: Compound Components, Render Props, State Reducer, and Controlled/Uncontrolled.
+- **Scalable Architecture** – Feature-based modular structure with **25 reusable UI components** (Button, Card, Modal, Tabs, SmartList, FormWizard, Toggle, Input, Select, Grid and more).
+- **Custom Hooks Architecture** – Built **7+ reusable hooks** for debouncing, filtering, pagination, search, theme management, and state management.
+- **Performance Optimization** – **200.6 KB gzip bundle** via strategic code splitting (11 chunks) and lazy loading **375+ modules**, ensuring optimal loading performance.
+- **Type-Safe Development** –  Full TypeScript integration across **50+ components** with **generic components** (like `SmartList<T>` and others) and **strict typing**, catching errors at compile time.
 
 ---
 
 ## ✨ Overview
 
-This profile manager represents my deep dive into **advanced React patterns** and **scalable architecture**. While building it, I focused on creating **reusable components**, organizing logic through **custom hooks**, and applying **React advanced patterns** commonly used in production environments. Special attention was given to **performance**, ensuring smooth rendering, efficient state updates, and fast navigation across the entire app.
+This profile manager represents my deep dive into **advanced React patterns**, **scalable architecture**, and **performance optimization** . \
+While building it, I focused on creating **reusable components**, organizing logic through **custom hooks**, and applying **React advanced patterns** commonly used in production environments. \
+Special attention was given to **performance**, ensuring smooth rendering, efficient state updates, and fast navigation across the entire app.
 
 ### 🎯 Technical Focus
 
@@ -44,9 +47,9 @@ This profile manager represents my deep dive into **advanced React patterns** an
 
 ## 🛠 Tech Stack
 
-- **Core Development**: React 19, TypeScript, Vite
+- **Core Development**: React 19+, TypeScript, Vite
 - **Styling & UI**: Tailwind CSS, Hero Icons
-- **Routing & State**: React Router, Context API + useReducer
+- **Routing & State**: React Router v7+, Context API + useReducer
 - **Advanced Patterns**: Compound Components, Render Props, State Reducer, Controlled/Uncontrolled components
 - **Performance**: Code Splitting, Lazy Loading, Memoization
 
@@ -61,18 +64,18 @@ A **complete user management system** that covers every essential **CRUD** opera
 **Profile Creation:**
 
 - **Quick Add**: Single-step form for fast creation
-- **Form Wizard**: Guided multi-step process with validation
+- **Form Wizard**: Guided multi-step process with simple validation
 
 **Profile Operations:**
 
-- **Browse**: Grid of profile cards with expandable sections
+- **Browse**: Grid/List of profile cards with expandable sections
 - **View**: Dedicated profile page with full details and tabs
 - **Edit**: In-place editing (**Tab-based editing**) with real-time validation
 - **Delete**: Safe deletion with confirmation modal
 
 **State Management:**
 
-- Global state via **Context API + useReducer**
+- Global state via **Context API + `useReducer`**
 - Predictable state updates
 - Clean separation of concerns
 
@@ -83,18 +86,16 @@ Some Snippets code:
 // Quick Add Form
 <ProfileForm onSuccess={handleSuccess} />
 
-// Browse & View Profiles
+// Browse & View Profiles as cards
 <ProfileCard key={profile.id} profile={profile} />
 
 //Profiles' state management
 const { state, dispatch } = useProfileContext();
-
 // Add profile
 dispatch({
   type: "ADD_PROFILE",
   payload: { profile: newProfile } // newProfile: Profile
 });
-
 // Update profile
 dispatch({
   type: "UPDATE_PROFILE",
@@ -109,18 +110,16 @@ dispatch({
 A **flexible, reusable wizard system** built with compound components:
 
 **Architecture:**
-
 - **Compound Components Pattern** for intuitive API
 - **Context API + Reducer** for state management
 - **TypeScript Generics** for type safety
-- **Steps' Callback** for validation and side effects
 
 **Features:**
-
+- Reusable across different item types (Profiles, Products, …)
 - Dynamic step navigation (next/prev/callback-based transitions)
 - Step-level validation callbacks
 - Final submission with error handling
-- Reusable across different item types (Profiles, Products, …)
+
 
 **Usage:** \
 Used to create a profile across multiple steps: Personal Info → Contact Info → Interests → Review → Submit
@@ -173,7 +172,7 @@ A **generic, type-safe list component** for handling complex data collections.
 - State reducer pattern for custom behavior
 - **Custom state management**: `useSmartListReducer` hook with default state reducer & `StateReducerOverride` for advanced behavior customization
 
-**Usage Example:**
+**Usage Example:** \
 Used in **Profiles List page** to view all profiles with search, filter, pagination with results count.
 
 ```tsx
@@ -201,7 +200,7 @@ A **flexible tab system** using the Compound Components pattern:
 - **Context-driven with `useState`** for internal state management
 - **TypeScript** for type safety
 - **URL synchronization** for deep linking (Optional tab syncing with URL)
-- Default tab support
+- **Default tab** support
 
 **Usage Example:** \
 Applied in **Profile View Page** to organize operations: View - Edit - Delete in one place
@@ -233,7 +232,7 @@ A **flexible state management** component using **Render Props + State Reducer**
 - **useReducer hook** for local state management
 - Default reducer + custom override support
 - **TypeScript** for type safety
-- Toggle, reset, and set state actions
+- **Toggle, reset, and set state actions**
 
 **Usage Examples:**
 
@@ -267,7 +266,7 @@ A **flexible state management** component using **Render Props + State Reducer**
 </Toggle>
 ```
 
-Note: The component supports custom reducers for advanced state logic as below:
+#### Note: The component supports custom reducers for advanced state logic as below:
 
 ```tsx
 const customReducer: ToggleStateReducer = (state, action) => {
