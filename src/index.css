@@ -1,0 +1,337 @@
+@import "tailwindcss";
+
+/* Define my custom theme using CSS variables */
+@theme {
+  /* Light Theme Colors - Teal Based */
+  --color-pm-primary: #0e7490; /* Teal-600 - Primary color */
+  --color-pm-primary-foreground: #ffffff;
+  --color-pm-secondary: #7c3aed; /* Purple-600 - Secondary for diversity */
+  --color-pm-accent: #06b6d4; /* Cyan-500 - Accent color */
+  --color-pm-background: #ffffff; /* Clean white background */
+  --color-pm-foreground: #1f2937; /* Gray-800 - Primary text */
+  --color-pm-muted: #6b7280; /* Gray-500 - Secondary text */
+  --color-pm-border: #e5e7eb; /* Gray-200 - Borders */
+  --color-pm-card: #f9fafb; /* Gray-50 - Card backgrounds */
+  --color-pm-success: #059669; /* Green-600 */
+  --color-pm-warning: #d97706; /* Amber-600 */
+  --color-pm-error: #dc2626; /* Red-600 */
+  --color-pm-info: #0ea5e9; /* Sky-500 */
+
+  /* Dark Theme Colors - Teal Based */
+  --color-dark-pm-primary: #0f766e; /* Teal-700 - Darker for night mode */
+  --color-dark-pm-primary-foreground: #ffffff;
+  --color-dark-pm-secondary: #a855f7; /* Purple-500 */
+  --color-dark-pm-accent: #22d3ee; /* Cyan-400 */
+  --color-dark-pm-background: #0f172a; /* Slate-900 - Dark background */
+  --color-dark-pm-foreground: #f8fafc; /* Slate-50 - Text in dark mode */
+  --color-dark-pm-muted: #94a3b8; /* Slate-400 */
+  --color-dark-pm-border: #334155; /* Slate-700 */
+  --color-dark-pm-card: #1e293b; /* Slate-800 - Dark cards */
+  --color-dark-pm-success: #10b981; /* Green-500 */
+  --color-dark-pm-warning: #f59e0b; /* Yellow-500 */
+  --color-dark-pm-error: #ef4444; /* Red-500 */
+  --color-dark-pm-info: #38bdf8; /* Sky-400 */
+
+  /* Custom Animations - Keeping animations as is */
+  --animate-pm-fade-in: pm-fade-in 0.3s ease-out;
+  --animate-pm-slide-up: pm-slide-up 0.3s ease-out;
+  --animate-pm-pulse: pm-pulse 2s infinite;
+
+  @keyframes pm-fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes pm-slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes pm-pulse {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+}
+
+/* Apply dark theme colors using class-based approach */
+.dark {
+  --color-pm-primary: var(--color-dark-pm-primary);
+  --color-pm-primary-foreground: var(--color-dark-pm-primary-foreground);
+  --color-pm-secondary: var(--color-dark-pm-secondary);
+  --color-pm-accent: var(--color-dark-pm-accent);
+  --color-pm-background: var(--color-dark-pm-background);
+  --color-pm-foreground: var(--color-dark-pm-foreground);
+  --color-pm-muted: var(--color-dark-pm-muted);
+  --color-pm-border: var(--color-dark-pm-border);
+  --color-pm-card: var(--color-dark-pm-card);
+  --color-pm-success: var(--color-dark-pm-success);
+  --color-pm-warning: var(--color-dark-pm-warning);
+  --color-pm-error: var(--color-dark-pm-error);
+  --color-pm-info: var(--color-dark-pm-info);
+}
+
+/* Base styles using Tailwind utilities */
+@utility container-pm {
+  @apply container mx-auto px-4 sm:px-6 max-w-7xl;
+}
+
+@utility text-muted {
+  color: var(--color-pm-muted);
+}
+
+@utility border-pm {
+  border-color: var(--color-pm-border);
+}
+
+@utility bg-card {
+  background-color: var(--color-pm-card);
+}
+
+/* Component styles using Tailwind layers */
+@layer components {
+  /* Button components */
+  .btn {
+    @apply cursor-pointer inline-flex items-center justify-center gap-2 px-4 py-2 rounded-md font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-primary {
+    @apply bg-pm-primary text-pm-primary-foreground hover:opacity-90 focus:ring-pm-primary;
+  }
+
+  .btn-secondary {
+    @apply bg-pm-secondary text-white hover:opacity-90 focus:ring-pm-secondary;
+  }
+
+  .btn-outline {
+    @apply bg-transparent border border-pm-border text-pm-foreground hover:bg-pm-card focus:ring-pm-primary;
+  }
+
+  .btn-ghost {
+    @apply bg-transparent text-pm-foreground hover:bg-pm-card focus:ring-pm-primary;
+  }
+
+  .btn-success {
+    @apply bg-pm-success text-pm-primary-foreground hover:opacity-90 focus:ring-pm-success;
+  }
+
+  .btn-danger {
+    @apply bg-pm-error text-pm-primary-foreground hover:opacity-90 focus:ring-pm-error;
+  }
+
+  /* Input components */
+  .input {
+    @apply w-full px-3 py-2 border border-pm-border rounded-md bg-transparent transition-colors duration-200 focus:outline-none focus:ring-2 focus:border-pm-primary focus:ring-pm-primary/20;
+  }
+
+  .input-error {
+    @apply border-pm-error focus:border-pm-error focus:ring-pm-error/20;
+  }
+
+  /* select elements */
+  .select-pm {
+    @apply w-full px-3 py-2.5;
+    @apply bg-pm-background border border-pm-border rounded-md;
+    @apply text-pm-foreground text-sm;
+    @apply transition-all duration-200;
+    @apply focus:outline-none focus:ring-2 focus:ring-pm-primary/30 focus:border-pm-primary;
+    @apply hover:border-pm-primary/50;
+    @apply cursor-pointer;
+    @apply appearance-none;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%236b7280' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 0.65rem;
+    padding-right: 2.5rem;
+  }
+
+  /* Option Styles */
+  .option-pm {
+    @apply bg-pm-background text-pm-foreground;
+    @apply py-2 px-3;
+    @apply border-0;
+    @apply hover:bg-pm-primary/10 hover:text-pm-primary;
+    @apply bg-pm-background text-pm-foreground;
+    @apply py-2 px-3;
+    @apply border-0;
+    @apply hover:bg-pm-primary/10 hover:text-pm-primary;
+    @apply checked:bg-pm-primary checked:text-pm-primary-foreground;
+    @apply focus:bg-pm-primary focus:text-pm-primary-foreground;
+  }
+
+  /* Dark mode support */
+  .dark .select-pm {
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%2394a3b8' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E");
+  }
+
+  /* Card components */
+  .card {
+    @apply bg-pm-card border border-pm-border rounded-lg shadow-sm transition-shadow duration-200;
+  }
+
+  .card-hover {
+    @apply bg-pm-card border border-pm-border rounded-lg shadow-sm transition-shadow duration-200 hover:shadow-md;
+  }
+
+  /* Modal components */
+  .modal {
+    @apply fixed inset-0 z-50 m-auto p-6 rounded-lg shadow-xl bg-pm-background text-pm-foreground border border-pm-border;
+  }
+
+  .modal-backdrop {
+    @apply backdrop:bg-black/50 backdrop:backdrop-blur-sm;
+  }
+
+  .modal-content {
+    @apply w-full max-w-md max-h-[80vh] overflow-auto;
+  }
+
+  /* Badge components */
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .badge-success {
+    @apply bg-pm-success/10 text-pm-success;
+  }
+
+  .badge-warning {
+    @apply bg-pm-warning/10 text-pm-warning;
+  }
+
+  .badge-error {
+    @apply bg-pm-error/10 text-pm-error;
+  }
+
+  .badge-info {
+    @apply bg-pm-info/10 text-pm-info;
+  }
+
+  /* Profile specific components */
+  .profile-section {
+    @apply space-y-6 animate-pm-fade-in;
+  }
+
+  .profile-grid {
+    @apply grid gap-6;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+
+  /* Navigation components */
+  .nav-item {
+    @apply px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200;
+  }
+
+  .nav-item-active {
+    @apply bg-pm-primary text-pm-primary-foreground;
+  }
+
+  .nav-item-inactive {
+    @apply text-pm-muted hover:bg-pm-card hover:text-pm-foreground;
+  }
+}
+
+/* Base HTML styles */
+html {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body {
+  @apply bg-pm-background text-pm-foreground;
+  font-feature-settings: "rlig" 1, "calt" 1;
+}
+
+::selection {
+  @apply bg-pm-primary text-pm-primary-foreground;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-pm-card;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-pm-border rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-pm-muted;
+}
+
+/* Mobile Menu Styles */
+.mobile-overlay {
+  backdrop-filter: blur(4px);
+}
+
+.mobile-nav-content {
+  box-shadow: -8px 0 32px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Prevent body scroll when menu is open */
+body:has(#mobile-menu:checked) {
+  overflow: hidden;
+}
+
+/* Mobile menu link hover effects */
+.mobile-nav-content li a:not(.active):hover {
+  background-color: var(--color-pm-background);
+  transform: translateX(4px);
+}
+
+/* Active link emphasis */
+.mobile-nav-content li a.active {
+  box-shadow: inset 0 0 0 1px var(--color-pm-primary);
+}
+
+/* Desktop navigation hover effects */
+.desktop-nav li a:hover {
+  transform: translateY(-1px);
+}
+
+/* Hamburger button hover */
+.mobile-menu-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+/* Responsive adjustments */
+@media (max-width: 380px) {
+  .mobile-nav-content {
+    width: 100%;
+  }
+}
+
+.stats-grid > * {
+  animation: pm-slide-up 0.4s ease-out both;
+}
+.stats-grid > *:nth-child(1) {
+  animation-delay: calc(var(--stagger-delay, 100ms) * 0);
+}
+.stats-grid > *:nth-child(2) {
+  animation-delay: calc(var(--stagger-delay, 100ms) * 1);
+}
+.stats-grid > *:nth-child(3) {
+  animation-delay: calc(var(--stagger-delay, 100ms) * 2);
+}
+.stats-grid > *:nth-child(4) {
+  animation-delay: calc(var(--stagger-delay, 100ms) * 3);
+}
