@@ -29,10 +29,10 @@ Special attention was given to **performance**, ensuring smooth rendering, effic
 ## 🏆 Key Achievements
 
 - **Advanced React Patterns** – Built production systems using **4 core patterns**: Compound Components, Render Props, State Reducer, and Controlled/Uncontrolled components.
-- **Scalable Architecture** – Feature-based modular structure with **25 reusable UI components** (Button, Card, Modal, Tabs, SmartList, FormWizard, Toggle, Input, Select, Grid and more).
+- **Scalable Architecture** – Feature-based modular structure with **+25 reusable UI components** (Button, Card, Modal, Tabs, SmartList, FormWizard, Toggle, Input, Select, Grid and more).
 - **Custom Hooks Architecture** – Built **4+ reusable hooks** for debouncing, filtering, pagination, search, theme management, and state management.
 - **Performance Optimization** – **200.6 KB gzip bundle** via strategic code splitting (**11 chunks**) and lazy loading **375+ modules**, ensuring optimal loading performance.
-- **Type-Safe Development** –  Full TypeScript integration across **50+ components** with **generic components** (like `SmartList<T>` and others) and **strict typing**, catching errors at compile time.
+- **Type-Safe Development** –  Full TypeScript integration across **45+ components** with **generic components** (like `SmartList<T>` and others) and **strict typing**, catching errors at compile time.
 
 ---
 
@@ -62,29 +62,31 @@ I aimed to build a system that's:
 ### 🏗 Technical Approach
 To achieve my goals, I adopted:
 
-#### Pattern-First Development:
+#### 1) Pattern-First Development
 I applied **4 core React patterns** where each made sense:
 - **Compound Components** (Tabs, FormWizard) for intuitive APIs
 - **Render Props** (Toggle) for flexible state sharing
 - **State Reducer** for customizable component behavior
 - **Controlled/Uncontrolled** components (Modal) for flexibility
 
-#### Type Safety as Priority:
+
+#### 2) Type Safety as Priority
 TypeScript was used from day one. Every component, hook, and utility is fully typed, catching errors at compile time rather than runtime.
 
-#### Logic Encapsulation through Hooks:
+
+#### 3) Logic Encapsulation through Hooks:
 Complex operations like **searching, filtering, and pagination** live inside small, testable custom hooks so UI components stay clean, thin and focused.
 
 
-#### Performance-aware Architecture:
+#### 4) Performance-aware Architecture
 Every architectural decision considers runtime cost:
 - memoized context values and selectors to avoid tree-wide re-renders
 - `React.memo`, `useMemo`, `useCallback` where appropriate
 - route- and component-level code splitting + prefetching for fast navigation
 
-#### Feature-First Organization:
+#### 5) Feature-First Organization
 A **feature-based folder** layout that ensures:
-- Clear**separation of concerns** between UI, business logic, and side effects
+- Clear **separation of concerns** between UI, business logic, and side effects
 - A **shared UI library** that enforces consistency and reusability
 - **Scalable structure** that grows gracefully with new features
 
@@ -98,7 +100,6 @@ A **feature-based folder** layout that ensures:
 A **complete user management system** that covers every essential **CRUD** operation in real-world applications:
 
 **Profile Creation:**
-
 - **Quick Add**: Single-step form for fast creation
 - **Form Wizard**: Guided multi-step process with simple validation
 
