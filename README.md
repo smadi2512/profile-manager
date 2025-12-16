@@ -29,7 +29,7 @@ Special attention was given to **performance**, ensuring smooth rendering, effic
 ## 🏆 Key Achievements
 
 - **Advanced React Patterns** – Built production systems using **4 core patterns**: Compound Components, Render Props, State Reducer, and Controlled/Uncontrolled components.
-- **Scalable Architecture** – Feature-based modular structure with **+25 reusable UI components** (Button, Card, Modal, Tabs, SmartList, FormWizard, Toggle, Input, Select, Grid and more).
+- **Scalable Architecture** – Feature-based modular structure with **25+ reusable UI components** (Button, Card, Modal, Tabs, SmartList, FormWizard, Toggle, Input, Select, Grid and more).
 - **Custom Hooks Architecture** – Built **4+ reusable hooks** for debouncing, filtering, pagination, search, theme management, and state management.
 - **Performance Optimization** – **200.6 KB gzip bundle** via strategic code splitting (**11 chunks**) and lazy loading **375+ modules**, ensuring optimal loading performance.
 - **Type-Safe Development** –  Full TypeScript integration across **45+ components** with **generic components** (like `SmartList<T>` and others) and **strict typing**, catching errors at compile time.
